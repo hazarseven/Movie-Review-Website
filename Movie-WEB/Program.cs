@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Movie_DataAccess.Context;
+
 namespace Movie_WEB
 {
     public class Program
@@ -8,6 +11,14 @@ namespace Movie_WEB
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
 
             var app = builder.Build();
 
