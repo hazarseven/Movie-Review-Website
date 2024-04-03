@@ -1,5 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Movie_DataAccess.Context;
+using Movie_DataAccess.DependencyResolvers.Autofac;
 
 namespace Movie_WEB
 {
@@ -12,6 +15,12 @@ namespace Movie_WEB
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+
+            builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                        .ConfigureContainer<ContainerBuilder>(builder =>
+                        {
+                            builder.RegisterModule(new AutofacBusinessModule());
+                        });
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

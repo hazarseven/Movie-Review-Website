@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Movie_DataAccess.Services.Concrete
 {
-    internal class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
+    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
         private readonly AppDbContext _context;
         private readonly DbSet<T> _table;
