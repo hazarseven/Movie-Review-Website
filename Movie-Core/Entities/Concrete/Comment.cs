@@ -12,6 +12,5 @@ namespace Movie_Core.Entities.Concrete
         public int MovieId { get; set; }
         public string UserComment { get; set; }
         public string UserName { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 }

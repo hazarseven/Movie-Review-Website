@@ -61,7 +61,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9315),
                             MovieId = 1,
                             Status = 1,
                             UserComment = "This movie is awesome!",
@@ -70,7 +70,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9317),
                             MovieId = 4,
                             Status = 1,
                             UserComment = "I love this movie!",
@@ -79,7 +79,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9318),
                             MovieId = 2,
                             Status = 1,
                             UserComment = "This movie is great!",
@@ -88,7 +88,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9319),
                             MovieId = 3,
                             Status = 1,
                             UserComment = "This movie is amazing!",
@@ -162,7 +162,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 1,
                             Cast = "Tim Robbins, Morgan Freeman, Bob Gunton",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5606),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8856),
                             Description = "Two imprisoned",
                             Director = "Frank Darabont",
                             Duration = 142,
@@ -178,7 +178,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 2,
                             Cast = "Marlon Brando, Al Pacino, James Caan",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5621),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8878),
                             Description = "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
                             Director = "Francis Ford Coppola",
                             Duration = 175,
@@ -194,7 +194,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 3,
                             Cast = "Christian Bale, Heath Ledger, Aaron Eckhart",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5623),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8882),
                             Description = "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
                             Director = "Christopher Nolan",
                             Duration = 152,
@@ -210,7 +210,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 4,
                             Cast = "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5625),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8884),
                             Description = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
                             Director = "Christopher Nolan",
                             Duration = 148,
@@ -226,7 +226,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 5,
                             Cast = "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5626),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8885),
                             Description = "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
                             Director = "Lana Wachowski, Lilly Wachowski",
                             Duration = 136,
@@ -242,7 +242,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 6,
                             Cast = "Elijah Wood, Ian McKellen, Orlando Bloom",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5628),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8887),
                             Description = "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
                             Director = "Peter Jackson",
                             Duration = 178,
@@ -258,7 +258,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 7,
                             Cast = "Elijah Wood, Ian McKellen, Viggo Mortensen",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5629),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8888),
                             Description = "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
                             Director = "Peter Jackson",
                             Duration = 179,
@@ -274,7 +274,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 8,
                             Cast = "Christian Bale, Tom Hardy, Anne Hathaway",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5630),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(8890),
                             Description = "Eight years after the Joker's reign of anarchy, Batman, with the help of the enigmatic Catwoman, is forced from his exile to save Gotham City from the brutal",
                             Director = "Christopher Nolan",
                             Duration = 164,
@@ -351,7 +351,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 1,
                             Cast = "Bryan Cranston, Aaron Paul, Anna Gunn",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5751),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9050),
                             Description = "A high school chemistry teacher turned meth maker",
                             Director = "Vince Gilligan",
                             Genre = "Crime",
@@ -366,7 +366,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 2,
                             Cast = "Emilia Clarke, Peter Dinklage, Kit Harington",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5754),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9057),
                             Description = "Nine noble families fight for control over the lands of Westeros",
                             Director = "David Benioff, D.B. Weiss",
                             Genre = "Action",
@@ -381,7 +381,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 3,
                             Cast = "Benedict Cumberbatch, Martin Freeman, Una Stubbs",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5756),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9059),
                             Description = "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",
                             Director = "Mark Gatiss, Steven Moffat",
                             Genre = "Crime",
@@ -396,7 +396,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 4,
                             Cast = "Jennifer Aniston, Courteney Cox, Lisa Kudrow",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5758),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9060),
                             Description = "Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.",
                             Director = "David Crane, Marta Kauffman",
                             Genre = "Comedy",
@@ -411,7 +411,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 5,
                             Cast = "Steve Carell, Jenna Fischer, John Krasinski",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5759),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9062),
                             Description = "A mockumentary on a group of typical office workers",
                             Director = "Greg Daniels, Ricky Gervais, Stephen Merchant",
                             Genre = "Comedy",
@@ -426,7 +426,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 6,
                             Cast = "Úrsula Corberó, Álvaro Morte, Itziar Ituño",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5760),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9063),
                             Description = "An unusual group of robbers attempt to carry out the most perfect robbery",
                             Director = "Álex Pina",
                             Genre = "Action",
@@ -441,7 +441,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 7,
                             Cast = "Millie Bobby Brown, Finn Wolfhard, Winona Ryder",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5761),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9064),
                             Description = "When a",
                             Director = "Matt Duffer, Ross Duffer",
                             Genre = "Drama",
@@ -456,7 +456,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 8,
                             Cast = "Claire Foy, Olivia Colman, Imelda Staunton",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5795),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9066),
                             Description = "Follows the political rivalries and romance of Queen Elizabeth II's reign",
                             Director = "Peter Morgan",
                             Genre = "Drama",
@@ -471,7 +471,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 9,
                             Cast = "Pedro Pascal, Carl Weathers, Gina Carano",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5797),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9067),
                             Description = "The travels of a lone bounty hunter in the outer reaches of the galaxy",
                             Director = "Jon Favreau",
                             Genre = "Action",
@@ -486,7 +486,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 10,
                             Cast = "Henry Cavill, Freya Allan, Anya Chalotra",
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5798),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9069),
                             Description = "Geralt of Rivia, a solitary monster hunter",
                             Director = "Lauren Schmidt",
                             Genre = "Action",
@@ -551,7 +551,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 1,
                             BirthDate = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5853),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9247),
                             Email = "johndoe@gmail.com",
                             FirstName = "John",
                             LastName = "Doe",
@@ -563,7 +563,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 2,
                             BirthDate = new DateTime(1991, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5855),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9249),
                             Email = "janedoe@gmail.com",
                             FirstName = "Jane",
                             LastName = "Doe",
@@ -575,7 +575,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 3,
                             BirthDate = new DateTime(1992, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5856),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9251),
                             Email = "alicesmith@gmail.com",
                             FirstName = "Alice",
                             LastName = "Smith",
@@ -587,7 +587,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 4,
                             BirthDate = new DateTime(1993, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 4, 3, 9, 51, 0, 40, DateTimeKind.Local).AddTicks(5857),
+                            CreatedDate = new DateTime(2024, 4, 3, 9, 58, 7, 785, DateTimeKind.Local).AddTicks(9252),
                             Email = "bobsmith@gmail.com",
                             FirstName = "Bob",
                             LastName = "Smith",

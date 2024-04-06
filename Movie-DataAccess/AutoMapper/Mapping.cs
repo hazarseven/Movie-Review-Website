@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Movie_Core.DTO_s.MovieDTO;
+using Movie_Core.DTO_s.TvSeriesDTO;
+using Movie_Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,13 @@ namespace Movie_DataAccess.AutoMapper
     {
         public Mapping()
         {
-            
+            CreateMap<Movie, AddMovieDTO>().ReverseMap();
+            CreateMap<Movie, UpdateMovieDTO>().ReverseMap();
+
+            CreateMap<TvSeries, AddTvSeriesDTO>().ReverseMap();
+            CreateMap<TvSeries, UpdateTvSeriesDTO>().ReverseMap();
+
+
         }
     }
 }

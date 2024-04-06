@@ -1,14 +1,10 @@
 ﻿using Movie_Core.Entities.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Movie_Core.Entities.Concrete
+namespace Movie_WEB.Models.ViewModels
 {
-    public class Movie : BaseEntity
+    public class MovieVM
     {
+        public int Id { get; set; }
         public string MovieName { get; set; }
         public string Description { get; set; }
         public string? ImagePath { get; set; }
@@ -19,6 +15,5 @@ namespace Movie_Core.Entities.Concrete
         public string Genre { get; set; }
         public int Duration { get; set; }
         public string? TrailerPath { get; set; }
-
     }
 }
