@@ -1,7 +1,10 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Movie_Core.Entities.UserEntities.Concrete;
 using Movie_DataAccess.Context;
+using Movie_DataAccess.Context.IdentityContext;
 using Movie_DataAccess.DependencyResolvers.Autofac;
 
 namespace Movie_WEB
@@ -29,6 +32,26 @@ namespace Movie_WEB
                 options.UseSqlServer(connectionString);
             });
 
+            builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
+
+            builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
+            {
+                x.SignIn.RequireConfirmedPhoneNumber = false;
+                x.SignIn.RequireConfirmedAccount = false;
+                x.SignIn.RequireConfirmedEmail = false;
+                x.User.RequireUniqueEmail = true;
+                x.Password.RequiredLength = 1;
+                x.Password.RequiredUniqueChars = 0;
+                x.Password.RequireUppercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+                x.Password.RequireLowercase = false;
+            })
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -44,6 +67,7 @@ namespace Movie_WEB
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
