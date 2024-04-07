@@ -6,6 +6,7 @@ using Movie_Core.Entities.Abstract;
 using Movie_Core.Entities.Concrete;
 using Movie_Core.DTO_s.MovieDTO;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Movie_WEB.Controllers
 {
@@ -72,25 +73,26 @@ namespace Movie_WEB.Controllers
                 if (movie != null)
                 {
                     var model = _mapper.Map<UpdateMovieDTO>(movie);
+                    //model.Movies = await _movieRepository.GetByDefaultsAsync(x => x.Status != Status.Passive);
                     return View(model);
                 }
             }
             TempData["Error"] = "Movie not found!";
             return RedirectToAction("Index");
         }
-
-        [HttpPost]
+         
+        [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateMovie(UpdateMovieDTO model)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 var movie = _mapper.Map<Movie>(model);
                 await _movieRepository.UpdateAsync(movie);
                 TempData["Success"] = "Movie updated successfully";
                 return RedirectToAction("Index");
-            }
-            TempData["Error"] = "Please follow the rules below!";
-            return View(model);
+            //}
+            //TempData["Error"] = "Please follow the rules below!";
+            //return View(model);
         }
 
         public async Task<IActionResult> DeleteMovie(int id)
