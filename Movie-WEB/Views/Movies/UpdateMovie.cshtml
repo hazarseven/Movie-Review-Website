@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Update Movie";
+}
+@model UpdateMovieDTO
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Film Güncelle</h3>
+            </div>
+            <form asp-action="UpdateMovie">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreatedDate" />
+                <input type="hidden" asp-for="UpdatedDate" />
+                <div class="card-body">
+                    <div>
+                        <label asp-for="MovieName" class="form-label"></label>
+                        <input asp-for="MovieName" class="form-control" />
+                        <span asp-validation-for="MovieName" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Description" class="form-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Director" class="form-label"></label>
+                        <input asp-for="Director" class="form-control" />
+                        <span asp-validation-for="Director" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Genre" class="form-label"></label>
+                        <input asp-for="Genre" class="form-control" />
+                        <span asp-validation-for="Genre" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Cast" class="form-label"></label>
+                        <input asp-for="Cast" class="form-control" />
+                        <span asp-validation-for="Cast" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="ImdbRating" class="form-label"></label>
+                        <input asp-for="ImdbRating" class="form-control" />
+                        <span asp-validation-for="ImdbRating" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Duration" class="form-label"></label>
+                        <input asp-for="Duration" class="form-control" />
+                        <span asp-validation-for="Duration" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between" style="height:50px;">
+                    <a asp-action="Index" class="btn btn-outline-dark">Geri Dön</a>
+                    <button type="submit" class="btn btn-outline-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
