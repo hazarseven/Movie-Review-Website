@@ -163,7 +163,5 @@ namespace Movie_WEB.Controllers
             TempData["Error"] = "Lütfen aşağıdaki kurallara uyunuz!";
             return View(model);
         }
-
-
     }
 }

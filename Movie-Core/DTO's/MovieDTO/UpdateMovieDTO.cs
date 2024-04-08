@@ -32,9 +32,9 @@ namespace Movie_Core.DTO_s.MovieDTO
         [Display(Name = "Movie IMDB Rating")]
         public double ImdbRating { get; set; }
         [Display(Name = "Movie Image")]
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
         [Display(Name = "Movie Trailer")]
-        public string TrailerPath { get; set; }
+        public string? TrailerPath { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
     }
