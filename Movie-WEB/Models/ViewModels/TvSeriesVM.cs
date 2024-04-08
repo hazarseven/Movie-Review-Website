@@ -9,6 +9,7 @@
         public string Director { get; set; }
         public string Cast { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public string ReleaseDateonly => ReleaseDate.ToShortDateString();
         public double ImdbRating { get; set; }
         public string Genre { get; set; }
         public string TrailerPath { get; set; }

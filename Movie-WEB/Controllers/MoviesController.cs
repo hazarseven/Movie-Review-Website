@@ -6,7 +6,6 @@ using Movie_Core.Entities.Abstract;
 using Movie_Core.Entities.Concrete;
 using Movie_Core.DTO_s.MovieDTO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 namespace Movie_WEB.Controllers
 {
@@ -28,17 +27,17 @@ namespace Movie_WEB.Controllers
                 (
                     select: x => new MovieVM
                     {
-                       Id = x.Id,
-                       MovieName = x.MovieName,
-                       Description = x.Description,
-                       Director = x.Director,
-                       Genre = x.Genre,
-                       Cast = x.Cast,
-                       Duration = x.Duration,
-                       ReleaseDate = x.ReleaseDate,
-                       ImdbRating = x.ImdbRating,
-                       ImagePath = x.ImagePath,
-                       TrailerPath = x.TrailerPath,
+                        Id = x.Id,
+                        MovieName = x.MovieName,
+                        Description = x.Description,
+                        Director = x.Director,
+                        Genre = x.Genre,
+                        Cast = x.Cast,
+                        Duration = x.Duration,
+                        ReleaseDate = x.ReleaseDate,
+                        ImdbRating = x.ImdbRating,
+                        ImagePath = x.ImagePath,
+                        TrailerPath = x.TrailerPath,
                     },
                     where: x => x.Status != Status.Passive,
                     orderBy: x => x.OrderByDescending(z => z.ImdbRating)
@@ -73,15 +72,14 @@ namespace Movie_WEB.Controllers
                 if (movie != null)
                 {
                     var model = _mapper.Map<UpdateMovieDTO>(movie);
-                    //model.Movies = await _movieRepository.GetByDefaultsAsync(x => x.Status != Status.Passive);
                     return View(model);
                 }
             }
             TempData["Error"] = "Movie not found!";
             return RedirectToAction("Index");
         }
-         
-        [HttpPost, ValidateAntiForgeryToken]
+
+        [HttpPost]
         public async Task<IActionResult> UpdateMovie(UpdateMovieDTO model)
         {
             //if (ModelState.IsValid)
