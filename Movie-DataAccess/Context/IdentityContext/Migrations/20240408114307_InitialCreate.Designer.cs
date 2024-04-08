@@ -12,7 +12,7 @@ using Movie_DataAccess.Context.IdentityContext;
 namespace Movie_DataAccess.Context.IdentityContext.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20240407182913_InitialCreate")]
+    [Migration("20240408114307_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -277,8 +277,8 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             Id = "f4f4f4f4-4f4f-4f4f-4f4f-4f4f4f4f4f4f",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "8034a48a-5708-453e-a700-a971e0d73489",
-                            CreatedDate = new DateTime(2024, 4, 7, 21, 29, 11, 866, DateTimeKind.Local).AddTicks(8977),
+                            ConcurrencyStamp = "edc2ab55-51a6-43e7-bd25-3b6b5107ddb0",
+                            CreatedDate = new DateTime(2024, 4, 8, 14, 43, 6, 735, DateTimeKind.Local).AddTicks(2151),
                             Email = "editor@test.com",
                             EmailConfirmed = false,
                             FirstName = "Editor",
@@ -286,9 +286,9 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITOR@TEST.COM",
                             NormalizedUserName = "EDITOR",
-                            PasswordHash = "AQAAAAIAAYagAAAAELOsfv39HpL+xyPpyz5Efy6BP2TiLVaNKU6gfQzeiFGVm489NbUOywdGmUS1gwCAQg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBecvEhmCghENWQzVeqrH7m8QwwUoVgm03OCIECUDhzpwvIw9EPfexN+dBC0Bw/XJA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "884fa5ab-d0cf-49ba-9c75-cd7aacc46865",
+                            SecurityStamp = "cbf8045c-bb43-4641-917e-b386a561309b",
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "editor"
@@ -298,8 +298,8 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             Id = "e3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "da837f51-e9fe-4481-8719-c9e67f213beb",
-                            CreatedDate = new DateTime(2024, 4, 7, 21, 29, 11, 963, DateTimeKind.Local).AddTicks(4407),
+                            ConcurrencyStamp = "7115d2bd-e672-473b-b670-993827b6ed38",
+                            CreatedDate = new DateTime(2024, 4, 8, 14, 43, 6, 775, DateTimeKind.Local).AddTicks(4265),
                             Email = "member@test.com",
                             EmailConfirmed = false,
                             FirstName = "Member",
@@ -307,9 +307,9 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MEMBER@TEST.COM",
                             NormalizedUserName = "MEMBER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMU95JMn9tYxQGc/wJlK5yefDWygaopwAzl2tAyt2a3BMl2ulCQErcep1Mg1lZvQYQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMEKImS7S+29z2NGuHEgo50jdOYQPqVO2xnCi8trKaknYhWii99RKx7E1SGsSkzW+A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "03e14e24-e688-45d8-b5be-6b255773399c",
+                            SecurityStamp = "ecd18dbb-9e6c-4130-8099-bc8293378d51",
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "member"

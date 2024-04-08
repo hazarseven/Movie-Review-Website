@@ -19,16 +19,16 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                     {
                         Id = 1,
                         UserName = "johndoe",
-                        UserComment = "This movie is awesome!",
-                        MovieId = 1
+                        UserComment = "This is awesome!",
+                        TvSeriesId = 1
                     },
 
                     new Comment
                     {
                         Id = 2,
                         UserName = "janedoe",
-                        UserComment = "I love this movie!",
-                        MovieId = 4
+                        UserComment = "I love this series!",
+                        TvSeriesId = 4
                     },
 
                     new Comment
