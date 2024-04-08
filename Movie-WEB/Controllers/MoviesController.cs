@@ -82,15 +82,15 @@ namespace Movie_WEB.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateMovie(UpdateMovieDTO model)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 var movie = _mapper.Map<Movie>(model);
                 await _movieRepository.UpdateAsync(movie);
                 TempData["Success"] = "Movie updated successfully";
                 return RedirectToAction("Index");
-            //}
-            //TempData["Error"] = "Please follow the rules below!";
-            //return View(model);
+            }
+            TempData["Error"] = "Please follow the rules below!";
+            return View(model);
         }
 
         public async Task<IActionResult> DeleteMovie(int id)
