@@ -141,25 +141,29 @@ namespace Movie_WEB.Controllers
         {
             if(ModelState.IsValid)
             {
-                var user = await _userManager.FindByIdAsync(model.Id);
-                if (user != null)
+                if (model.OldPassword == model.Password)
                 {
-                    var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
-                    if (result.Succeeded)
-                    {
-                        TempData["Success"] = "Şifreniz başarıyla değiştirildi!";
-                        return RedirectToAction("Login");
-                    }
-                    TempData["Error"] = "Şifreniz değiştirilemedi!";
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
+                    TempData["Error"] = "Yeni şifreniz eski şifrenizle aynı olamaz!";
                     return View(model);
                 }
-                TempData["Error"] = "Kullanıcı bulunamadı!";
-                return RedirectToAction("Login");
+                if (model.Password == model.PasswordCheck)
+                {
+                    var appUser = await _userManager.FindByIdAsync(model.Id);
+                    var result = await _userManager.ChangePasswordAsync(appUser, model.OldPassword, model.Password);
+                    if (result.Succeeded)
+                    {
+                        await _signInManager.SignOutAsync();
+                        TempData["Success"] = "Şifreniz kaydedildi. Yeni şifreniz ile giriş yapabilirsiniz!";
+                        return RedirectToAction("Login");
+                    }
+                }
+                TempData["Error"] = "Şifreleriniz uyuşmuyor!";
+                return View(model);
             }
+            TempData["Error"] = "Lütfen aşağıdaki kurallara uyunuz!";
+            return View(model);
         }
+
+
     }
 }
