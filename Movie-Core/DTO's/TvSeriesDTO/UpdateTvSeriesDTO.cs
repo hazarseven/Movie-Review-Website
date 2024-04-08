@@ -10,6 +10,7 @@ namespace Movie_Core.DTO_s.TvSeriesDTO
 {
     public class UpdateTvSeriesDTO
     {
+        public int Id { get; set; }
         [Display(Name = "Tv Series Name")]
         public string TvSeriesName { get; set; }
         [Display(Name = "Tv Series Description")]
@@ -25,9 +26,9 @@ namespace Movie_Core.DTO_s.TvSeriesDTO
         [Display(Name = "Genre")]
         public string Genre { get; set; }
         [Display(Name = "Tv Series Image")]
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
         [Display(Name = "Trailer")]
-        public string TrailerPath { get; set; }
+        public string? TrailerPath { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
     }

@@ -1,20 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Add Movie";
+    ViewData["Title"] = "Add Tv Series";
 }
-@model AddMovieDTO
+@model AddTvSeriesDTO
 
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Yeni Film Ekle</h3>
+                <h3 class="card-title">Yeni Dizi Ekle</h3>
             </div>
-            <form asp-action="AddMovie">
+            <form asp-action="AddTvSeries">
                 <div class="card-body">
                     <div>
-                        <label asp-for="MovieName" class="form-label"></label>
-                        <input asp-for="MovieName" class="form-control" />
-                        <span asp-validation-for="MovieName" class="text-danger"></span>
+                        <label asp-for="TvSeriesName" class="form-label"></label>
+                        <input asp-for="TvSeriesName" class="form-control" />
+                        <span asp-validation-for="TvSeriesName" class="text-danger"></span>
                     </div>
                     <div>
                         <label asp-for="Description" class="form-label"></label>
@@ -50,11 +50,6 @@
                         <label asp-for="ImagePath" class="form-label"></label>
                         <input asp-for="ImagePath" class="form-control" />
                         <span asp-validation-for="ImagePath" class="text-danger"></span>
-                    </div>
-                    <div>
-                        <label asp-for="Duration" class="form-label"></label>
-                        <input asp-for="Duration" class="form-control" />
-                        <span asp-validation-for="Duration" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between" style="height:50px;">

@@ -13,7 +13,7 @@ namespace Movie_DataAccess.Context
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            Database.Migrate();
+            //Database.Migrate();
         }
 
         public DbSet<Movie> Movies { get; set; }

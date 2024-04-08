@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Movie_DataAccess.Context.IdentityContext;
 
@@ -11,9 +12,11 @@ using Movie_DataAccess.Context.IdentityContext;
 namespace Movie_DataAccess.Context.IdentityContext.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240408133804_InitalCreate")]
+    partial class InitalCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,13 +277,8 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             Id = "f4f4f4f4-4f4f-4f4f-4f4f-4f4f4f4f4f4f",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-
                             ConcurrencyStamp = "20cbef84-d6b1-4d71-9f4e-9f8a688c5fb7",
                             CreatedDate = new DateTime(2024, 4, 8, 16, 38, 2, 872, DateTimeKind.Local).AddTicks(8280),
-
-                            ConcurrencyStamp = "edc2ab55-51a6-43e7-bd25-3b6b5107ddb0",
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 43, 6, 735, DateTimeKind.Local).AddTicks(2151),
-
                             Email = "editor@test.com",
                             EmailConfirmed = false,
                             FirstName = "Editor",
@@ -288,15 +286,9 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITOR@TEST.COM",
                             NormalizedUserName = "EDITOR",
-
                             PasswordHash = "AQAAAAIAAYagAAAAEEqXll5IhijOhhc2xd1fz+DNqWFcqNumZ7lP2ulPQjR0UtFX3f65ABZ08tliYHzIyw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "da5cf07a-8d56-4447-a4cf-6f169b6fd901",
-
-                            PasswordHash = "AQAAAAIAAYagAAAAEBecvEhmCghENWQzVeqrH7m8QwwUoVgm03OCIECUDhzpwvIw9EPfexN+dBC0Bw/XJA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "cbf8045c-bb43-4641-917e-b386a561309b",
-
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "editor"
@@ -306,13 +298,8 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             Id = "e3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-
                             ConcurrencyStamp = "891e15d5-856a-4c2f-a707-6c587833ce27",
                             CreatedDate = new DateTime(2024, 4, 8, 16, 38, 2, 976, DateTimeKind.Local).AddTicks(7389),
-
-                            ConcurrencyStamp = "7115d2bd-e672-473b-b670-993827b6ed38",
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 43, 6, 775, DateTimeKind.Local).AddTicks(4265),
-
                             Email = "member@test.com",
                             EmailConfirmed = false,
                             FirstName = "Member",
@@ -320,15 +307,9 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MEMBER@TEST.COM",
                             NormalizedUserName = "MEMBER",
-
                             PasswordHash = "AQAAAAIAAYagAAAAEPWRkpikIQTrGkEcdRr41kB6bkENM5uc9PMTOuZGE6dFIEugQF4L1vUtSnXo94loEw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "b6590a25-2923-42a3-a7ee-97eb195a519d",
-
-                            PasswordHash = "AQAAAAIAAYagAAAAEMEKImS7S+29z2NGuHEgo50jdOYQPqVO2xnCi8trKaknYhWii99RKx7E1SGsSkzW+A==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "ecd18dbb-9e6c-4130-8099-bc8293378d51",
-
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "member"

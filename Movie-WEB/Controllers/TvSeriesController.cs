@@ -75,7 +75,7 @@ namespace Movie_WEB.Controllers
             return RedirectToAction("Index");
         }
 
-        
+
 
         [HttpPost]
         public async Task<IActionResult> UpdateTvSeries(UpdateTvSeriesDTO model)

@@ -6,7 +6,6 @@ using Movie_Core.Entities.Abstract;
 using Movie_Core.Entities.Concrete;
 using Movie_Core.DTO_s.MovieDTO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 namespace Movie_WEB.Controllers
 {
