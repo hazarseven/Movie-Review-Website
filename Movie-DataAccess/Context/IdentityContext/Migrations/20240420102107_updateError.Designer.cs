@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Movie_DataAccess.Context.IdentityContext;
 
@@ -11,9 +12,11 @@ using Movie_DataAccess.Context.IdentityContext;
 namespace Movie_DataAccess.Context.IdentityContext.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240420102107_updateError")]
+    partial class updateError
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,13 +277,8 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             Id = "f4f4f4f4-4f4f-4f4f-4f4f-4f4f4f4f4f4f",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<< Updated upstream
-                            ConcurrencyStamp = "edc2ab55-51a6-43e7-bd25-3b6b5107ddb0",
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 43, 6, 735, DateTimeKind.Local).AddTicks(2151),
-=======
                             ConcurrencyStamp = "f9da1636-8baa-43da-baac-d62ba639bd02",
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 7, 27, DateTimeKind.Local).AddTicks(1483),
->>>>>>> Stashed changes
                             Email = "editor@test.com",
                             EmailConfirmed = false,
                             FirstName = "Editor",
@@ -288,15 +286,9 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITOR@TEST.COM",
                             NormalizedUserName = "EDITOR",
-<<<<<<< Updated upstream
-                            PasswordHash = "AQAAAAIAAYagAAAAEBecvEhmCghENWQzVeqrH7m8QwwUoVgm03OCIECUDhzpwvIw9EPfexN+dBC0Bw/XJA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "cbf8045c-bb43-4641-917e-b386a561309b",
-=======
                             PasswordHash = "AQAAAAIAAYagAAAAEPv91SHfieGXpxNbcFSl8f0Tc4+pxbJdiHHkIcVucxTplge3xuJ6OWVstnLnaCsDZg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "c36b06f9-407c-4a05-a43a-38ecdae5e834",
->>>>>>> Stashed changes
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "editor"
@@ -306,13 +298,8 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             Id = "e3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
                             AccessFailedCount = 0,
                             BirthDate = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<< Updated upstream
-                            ConcurrencyStamp = "7115d2bd-e672-473b-b670-993827b6ed38",
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 43, 6, 775, DateTimeKind.Local).AddTicks(4265),
-=======
                             ConcurrencyStamp = "d9b73c15-946c-4cf4-beae-6d6132f8d3cc",
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 7, 72, DateTimeKind.Local).AddTicks(6014),
->>>>>>> Stashed changes
                             Email = "member@test.com",
                             EmailConfirmed = false,
                             FirstName = "Member",
@@ -320,15 +307,9 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MEMBER@TEST.COM",
                             NormalizedUserName = "MEMBER",
-<<<<<<< Updated upstream
-                            PasswordHash = "AQAAAAIAAYagAAAAEMEKImS7S+29z2NGuHEgo50jdOYQPqVO2xnCi8trKaknYhWii99RKx7E1SGsSkzW+A==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "ecd18dbb-9e6c-4130-8099-bc8293378d51",
-=======
                             PasswordHash = "AQAAAAIAAYagAAAAEBgTBUx8vBzAIgQW2Gao45VdV30h4IUZX9ljf1S9Z+eshUwdRGzjsufqeFAEXv8t4Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "24722d3f-e2a3-4c44-ae93-997c0efae21f",
->>>>>>> Stashed changes
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "member"

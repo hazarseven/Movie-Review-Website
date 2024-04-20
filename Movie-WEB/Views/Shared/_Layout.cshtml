@@ -9,6 +9,29 @@
     <link rel="stylesheet" href="~/Movie_WEB.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <nav class="navbar navbar-expand-md sticky-top py-3 navbar-dark"
+         id="mainNav">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </span><span>Bilge Adam</span>
+            </a><button data-bs-toggle="collapse"
+                        class="navbar-toggler"
+                        data-bs-target="#navcol-1">
+                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                    </li>
+                    <partial name="_AuthenticationPartial" />
+                </ul>
+            </div>
+        </div>
+    </nav>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -23,11 +46,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">Filmler</a>
                         </li>
+<<<<<<< Updated upstream
+=======
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TvSeries" asp-action="Index">Diziler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Login</a>
+                        </li>
+>>>>>>> Stashed changes
                     </ul>
                 </div>
             </div>

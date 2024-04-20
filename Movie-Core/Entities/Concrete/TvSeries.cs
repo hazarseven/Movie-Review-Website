@@ -9,6 +9,10 @@ namespace Movie_Core.Entities.Concrete
 {
     public class TvSeries : BaseEntity
     {
+        public TvSeries()
+        {
+            Comments = new List<Comment>();
+        }
         public string TvSeriesName { get; set; }
         public string Description { get; set; }
         public string ImagePath { get; set; }
@@ -17,6 +21,12 @@ namespace Movie_Core.Entities.Concrete
         public DateTime ReleaseDate { get; set; }
         public double ImdbRating { get; set; }
         public string Genre { get; set; }
+<<<<<<< Updated upstream
         public string TrailerPath { get; set; }
+=======
+        public string? TrailerPath { get; set; }
+
+        public List<Comment> Comments { get; set; }
+>>>>>>> Stashed changes
     }
 }

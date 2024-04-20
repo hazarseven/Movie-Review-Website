@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Movie_Core.DTO_s.CommentDTO;
 using Movie_Core.DTO_s.MovieDTO;
 using Movie_Core.DTO_s.TvSeriesDTO;
 using Movie_Core.Entities.Concrete;

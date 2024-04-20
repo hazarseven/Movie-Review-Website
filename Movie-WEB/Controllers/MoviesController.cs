@@ -46,12 +46,14 @@ namespace Movie_WEB.Controllers
             return View(movies);
         }
 
+        [Authorize(Roles = "editor")]
         public IActionResult AddMovie()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "editor")]
         public async Task<IActionResult> AddMovie(AddMovieDTO model)
         {
             if (ModelState.IsValid)
@@ -64,6 +66,8 @@ namespace Movie_WEB.Controllers
             TempData["Error"] = "Please follow the rules below!";
             return View(model);
         }
+
+        [Authorize(Roles = "editor")]
 
         public async Task<IActionResult> UpdateMovie(int id)
         {
@@ -80,8 +84,15 @@ namespace Movie_WEB.Controllers
             TempData["Error"] = "Movie not found!";
             return RedirectToAction("Index");
         }
+<<<<<<< Updated upstream
          
         [HttpPost, ValidateAntiForgeryToken]
+=======
+
+        [HttpPost]
+        [Authorize(Roles = "editor")]
+
+>>>>>>> Stashed changes
         public async Task<IActionResult> UpdateMovie(UpdateMovieDTO model)
         {
             //if (ModelState.IsValid)
@@ -95,6 +106,7 @@ namespace Movie_WEB.Controllers
             //return View(model);
         }
 
+        [Authorize(Roles = "editor")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
             if (id > 0)

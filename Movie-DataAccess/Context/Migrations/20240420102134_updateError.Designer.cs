@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Movie_DataAccess.Context;
 
@@ -11,9 +12,11 @@ using Movie_DataAccess.Context;
 namespace Movie_DataAccess.Context.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240420102134_updateError")]
+    partial class updateError
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,11 +76,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 1,
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6588),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5583),
->>>>>>> Stashed changes
                             Status = 1,
                             TvSeriesId = 1,
                             UserComment = "This is awesome!",
@@ -86,11 +85,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 2,
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6590),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5586),
->>>>>>> Stashed changes
                             Status = 1,
                             TvSeriesId = 4,
                             UserComment = "I love this series!",
@@ -99,11 +94,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 3,
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6591),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5587),
->>>>>>> Stashed changes
                             MovieId = 2,
                             Status = 1,
                             UserComment = "This movie is great!",
@@ -112,11 +103,7 @@ namespace Movie_DataAccess.Context.Migrations
                         new
                         {
                             Id = 4,
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6592),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5587),
->>>>>>> Stashed changes
                             MovieId = 3,
                             Status = 1,
                             UserComment = "This movie is amazing!",
@@ -187,11 +174,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 1,
                             Cast = "Tim Robbins, Morgan Freeman, Bob Gunton",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6159),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5243),
->>>>>>> Stashed changes
                             Description = "Two imprisoned",
                             Director = "Frank Darabont",
                             Duration = 142,
@@ -207,11 +190,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 2,
                             Cast = "Marlon Brando, Al Pacino, James Caan",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6177),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5261),
->>>>>>> Stashed changes
                             Description = "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
                             Director = "Francis Ford Coppola",
                             Duration = 175,
@@ -227,11 +206,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 3,
                             Cast = "Christian Bale, Heath Ledger, Aaron Eckhart",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6180),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5263),
->>>>>>> Stashed changes
                             Description = "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
                             Director = "Christopher Nolan",
                             Duration = 152,
@@ -247,11 +222,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 4,
                             Cast = "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6182),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5265),
->>>>>>> Stashed changes
                             Description = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
                             Director = "Christopher Nolan",
                             Duration = 148,
@@ -267,11 +238,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 5,
                             Cast = "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6184),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5266),
->>>>>>> Stashed changes
                             Description = "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
                             Director = "Lana Wachowski, Lilly Wachowski",
                             Duration = 136,
@@ -287,11 +254,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 6,
                             Cast = "Elijah Wood, Ian McKellen, Orlando Bloom",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6186),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5288),
->>>>>>> Stashed changes
                             Description = "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
                             Director = "Peter Jackson",
                             Duration = 178,
@@ -307,11 +270,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 7,
                             Cast = "Elijah Wood, Ian McKellen, Viggo Mortensen",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6188),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5289),
->>>>>>> Stashed changes
                             Description = "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
                             Director = "Peter Jackson",
                             Duration = 179,
@@ -327,11 +286,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 8,
                             Cast = "Christian Bale, Tom Hardy, Anne Hathaway",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6190),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5291),
->>>>>>> Stashed changes
                             Description = "Eight years after the Joker's reign of anarchy, Batman, with the help of the enigmatic Catwoman, is forced from his exile to save Gotham City from the brutal",
                             Director = "Christopher Nolan",
                             Duration = 164,
@@ -376,7 +331,6 @@ namespace Movie_DataAccess.Context.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImagePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("ImdbRating")
@@ -389,7 +343,6 @@ namespace Movie_DataAccess.Context.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TrailerPath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TvSeriesName")
@@ -408,11 +361,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 1,
                             Cast = "Bryan Cranston, Aaron Paul, Anna Gunn",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6372),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5415),
->>>>>>> Stashed changes
                             Description = "A high school chemistry teacher turned meth maker",
                             Director = "Vince Gilligan",
                             Genre = "Crime",
@@ -427,11 +376,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 2,
                             Cast = "Emilia Clarke, Peter Dinklage, Kit Harington",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6377),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5421),
->>>>>>> Stashed changes
                             Description = "Nine noble families fight for control over the lands of Westeros",
                             Director = "David Benioff, D.B. Weiss",
                             Genre = "Action",
@@ -446,11 +391,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 3,
                             Cast = "Benedict Cumberbatch, Martin Freeman, Una Stubbs",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6379),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5423),
->>>>>>> Stashed changes
                             Description = "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",
                             Director = "Mark Gatiss, Steven Moffat",
                             Genre = "Crime",
@@ -465,11 +406,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 4,
                             Cast = "Jennifer Aniston, Courteney Cox, Lisa Kudrow",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6381),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5424),
->>>>>>> Stashed changes
                             Description = "Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.",
                             Director = "David Crane, Marta Kauffman",
                             Genre = "Comedy",
@@ -484,11 +421,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 5,
                             Cast = "Steve Carell, Jenna Fischer, John Krasinski",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6382),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5425),
->>>>>>> Stashed changes
                             Description = "A mockumentary on a group of typical office workers",
                             Director = "Greg Daniels, Ricky Gervais, Stephen Merchant",
                             Genre = "Comedy",
@@ -503,11 +436,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 6,
                             Cast = "Úrsula Corberó, Álvaro Morte, Itziar Ituño",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6384),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5427),
->>>>>>> Stashed changes
                             Description = "An unusual group of robbers attempt to carry out the most perfect robbery",
                             Director = "Álex Pina",
                             Genre = "Action",
@@ -522,11 +451,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 7,
                             Cast = "Millie Bobby Brown, Finn Wolfhard, Winona Ryder",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6385),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5428),
->>>>>>> Stashed changes
                             Description = "When a",
                             Director = "Matt Duffer, Ross Duffer",
                             Genre = "Drama",
@@ -541,11 +466,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 8,
                             Cast = "Claire Foy, Olivia Colman, Imelda Staunton",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6387),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5430),
->>>>>>> Stashed changes
                             Description = "Follows the political rivalries and romance of Queen Elizabeth II's reign",
                             Director = "Peter Morgan",
                             Genre = "Drama",
@@ -560,11 +481,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 9,
                             Cast = "Pedro Pascal, Carl Weathers, Gina Carano",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6388),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5431),
->>>>>>> Stashed changes
                             Description = "The travels of a lone bounty hunter in the outer reaches of the galaxy",
                             Director = "Jon Favreau",
                             Genre = "Action",
@@ -579,11 +496,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 10,
                             Cast = "Henry Cavill, Freya Allan, Anya Chalotra",
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6419),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5432),
->>>>>>> Stashed changes
                             Description = "Geralt of Rivia, a solitary monster hunter",
                             Director = "Lauren Schmidt",
                             Genre = "Action",
@@ -648,11 +561,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 1,
                             BirthDate = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6505),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5491),
->>>>>>> Stashed changes
                             Email = "johndoe@gmail.com",
                             FirstName = "John",
                             LastName = "Doe",
@@ -664,11 +573,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 2,
                             BirthDate = new DateTime(1991, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6509),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5493),
->>>>>>> Stashed changes
                             Email = "janedoe@gmail.com",
                             FirstName = "Jane",
                             LastName = "Doe",
@@ -680,11 +585,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 3,
                             BirthDate = new DateTime(1992, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6510),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5494),
->>>>>>> Stashed changes
                             Email = "alicesmith@gmail.com",
                             FirstName = "Alice",
                             LastName = "Smith",
@@ -696,11 +597,7 @@ namespace Movie_DataAccess.Context.Migrations
                         {
                             Id = 4,
                             BirthDate = new DateTime(1993, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-<<<<<<< Updated upstream
-                            CreatedDate = new DateTime(2024, 4, 8, 14, 42, 6, 880, DateTimeKind.Local).AddTicks(6512),
-=======
                             CreatedDate = new DateTime(2024, 4, 20, 13, 21, 34, 460, DateTimeKind.Local).AddTicks(5496),
->>>>>>> Stashed changes
                             Email = "bobsmith@gmail.com",
                             FirstName = "Bob",
                             LastName = "Smith",
