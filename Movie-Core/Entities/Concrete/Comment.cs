@@ -9,9 +9,17 @@ namespace Movie_Core.Entities.Concrete
 {
     public class Comment : BaseEntity
     {
-        public int? MovieId { get; set; }
-        public int? TvSeriesId { get; set; }
         public string UserComment { get; set; }
         public string UserName { get; set; }
+
+        public int? MovieId { get; set; }
+        public Movie Movie { get; set; }
+
+        public int? TvSeriesId { get; set; }
+        public TvSeries TvSeries { get; set; }
+
+        public int? UserId { get; set; }
+        public User User { get; set; }
+
     }
 }

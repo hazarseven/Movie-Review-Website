@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Movie_DataAccess.Context.IdentityContext.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -179,8 +179,8 @@ namespace Movie_DataAccess.Context.IdentityContext.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "BirthDate", "ConcurrencyStamp", "CreatedDate", "DeletedDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedDate", "UserName" },
                 values: new object[,]
                 {
-                    { "e3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b", 0, new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "891e15d5-856a-4c2f-a707-6c587833ce27", new DateTime(2024, 4, 8, 16, 38, 2, 976, DateTimeKind.Local).AddTicks(7389), null, "member@test.com", false, "Member", "Member", false, null, "MEMBER@TEST.COM", "MEMBER", "AQAAAAIAAYagAAAAEPWRkpikIQTrGkEcdRr41kB6bkENM5uc9PMTOuZGE6dFIEugQF4L1vUtSnXo94loEw==", null, false, "b6590a25-2923-42a3-a7ee-97eb195a519d", 1, false, null, "member" },
-                    { "f4f4f4f4-4f4f-4f4f-4f4f-4f4f4f4f4f4f", 0, new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "20cbef84-d6b1-4d71-9f4e-9f8a688c5fb7", new DateTime(2024, 4, 8, 16, 38, 2, 872, DateTimeKind.Local).AddTicks(8280), null, "editor@test.com", false, "Editor", "Editor", false, null, "EDITOR@TEST.COM", "EDITOR", "AQAAAAIAAYagAAAAEEqXll5IhijOhhc2xd1fz+DNqWFcqNumZ7lP2ulPQjR0UtFX3f65ABZ08tliYHzIyw==", null, false, "da5cf07a-8d56-4447-a4cf-6f169b6fd901", 1, false, null, "editor" }
+                    { "e3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b", 0, new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "aed088fe-e1c9-451e-8cf4-250028c2f93a", new DateTime(2024, 4, 8, 17, 51, 32, 31, DateTimeKind.Local).AddTicks(4763), null, "member@test.com", false, "Member", "Member", false, null, "MEMBER@TEST.COM", "MEMBER", "AQAAAAIAAYagAAAAENXvtqVHmwrfiD7AJk4ou/M+gmz3nVPCYkVcvD3/c1vXA3KLDpvx6ADObL79MdQFzg==", null, false, "b4c6ad05-17cd-47f5-be4b-9abfb90150ed", 1, false, null, "member" },
+                    { "f4f4f4f4-4f4f-4f4f-4f4f-4f4f4f4f4f4f", 0, new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "7ad804c8-dd46-4035-be34-03bb95200b13", new DateTime(2024, 4, 8, 17, 51, 31, 963, DateTimeKind.Local).AddTicks(6223), null, "editor@test.com", false, "Editor", "Editor", false, null, "EDITOR@TEST.COM", "EDITOR", "AQAAAAIAAYagAAAAENmLb/4YjKC+UqjvxRgiDvUNu5AHXW06f2jyFFg5CZLm5vZvWsWJpgH+RisQs0GB9w==", null, false, "2f867908-e718-4bb3-a5ef-89ef36a9b1e9", 1, false, null, "editor" }
                 });
 
             migrationBuilder.InsertData(

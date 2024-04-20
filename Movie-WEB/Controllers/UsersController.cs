@@ -28,66 +28,61 @@ namespace Movie_WEB.Controllers
             _userRepository = userRepository;
             _roleManager = roleManager;
         }
-        public async Task<IActionResult> Register()
-        {
-            var roles = await _roleManager.Roles.ToListAsync();
-            var model = new RegisterDTO() { Roles = roles };
 
-            return View(model);
-        }
+        [AllowAnonymous]
+         public IActionResult Register() => View();
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]
+        //Kullanıcı kayıt olabilmesi için mevcut verilerimle uyumlu bir kayıt olma post action'ı oluştur.
         public async Task<IActionResult> Register(RegisterDTO model)
         {
             var roles = await _roleManager.Roles.ToListAsync();
             model.Roles = roles;
-
             if (ModelState.IsValid)
             {
-                var appUser = new AppUser
-                {
+                AppUser appUser = new AppUser 
+                { 
                     UserName = String.Join("", model.FirstName.Normalize(NormalizationForm.FormD)
         .Where(c => char.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)).ToLower().Replace('ı', 'i') + "." + String.Join("", model.LastName.Normalize(NormalizationForm.FormD)
         .Where(c => char.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)).ToLower().Replace('ı', 'i'),
-                    Email = model.Email,    
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    BirthDate = (DateTime)model.BirthDate
+                    BirthDate = (DateTime)model.BirthDate,
+                    Email = model.Email,
                 };
-
                 appUser.PasswordHash = _passwordHasher.HashPassword(appUser, model.Password);
 
-                IdentityResult result = await _userManager.CreateAsync(appUser);
+                IdentityResult identityResult = await _userManager.CreateAsync(appUser);
 
-                if (result.Succeeded)
+                if (identityResult.Succeeded)
                 {
                     var role = await _roleManager.FindByIdAsync(model.RoleId);
-
-                    var user = new User
+                    var member = new User
                     {
                         FirstName = model.FirstName,
                         LastName = model.LastName,
                         BirthDate = (DateTime)model.BirthDate,
                         Email = model.Email,
                     };
-                    await _userRepository.AddAsync(user);
-
-                    TempData["Success"] = $"Hoşgeldiniz. Giriş yapma sayfasına yönlendiriliyorsunuz...";
+                    await _userManager.AddToRoleAsync(appUser, "member");
+                    TempData["Success"] = "Kaydınız yapıldı. Giriş yapabilirsiniz...";
                     return RedirectToAction("Login");
                 }
                 else
                 {
                     TempData["Error"] = "Kayıt yapılamadı!";
-                    foreach (var error in result.Errors)
+                    foreach (var error in identityResult.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
+                        return View(model);
                     }
-                    return View(model);
+
                 }
             }
             TempData["Error"] = "Lütfen aşağıdaki kurallara uyunuz!";
             return View(model);
         }
+
 
         [AllowAnonymous]
         public IActionResult Login() => View();
@@ -123,6 +118,8 @@ namespace Movie_WEB.Controllers
             return View(model);
         }
 
+
+        [Authorize(Roles = "editor, member")]
         [HttpGet]
         public async Task<IActionResult> ChangePassword(string id)
         {
@@ -136,7 +133,9 @@ namespace Movie_WEB.Controllers
             return RedirectToAction("Login");
         }
 
+
         [HttpPost, ValidateAntiForgeryToken]
+        [Authorize(Roles = "editor, member")]
         public async Task<IActionResult> ChangePassword(ChangePasswordDTO model)
         {
             if(ModelState.IsValid)
@@ -162,6 +161,85 @@ namespace Movie_WEB.Controllers
             }
             TempData["Error"] = "Lütfen aşağıdaki kurallara uyunuz!";
             return View(model);
+        }
+
+        [Authorize(Roles = "editor, member")]
+        public async Task<IActionResult> EditUser()
+        {
+            var userId = _userManager.GetUserId(HttpContext.User);
+            if (userId is not null)
+            {
+                var appUser = await _userManager.FindByIdAsync(userId);
+                var model = new EditUserDTO()
+                {
+                    Id = appUser.Id,
+                    FirstName = appUser.FirstName,
+                    LastName = appUser.LastName,
+                    Email = appUser.Email,
+                    BirthDate = appUser.BirthDate.ToShortDateString(),
+                    UserName = appUser.UserName,
+                    Password = appUser.PasswordHash,
+                    CreatedDate = appUser.CreatedDate,
+                    UpdatedDate = appUser.UpdatedDate
+                };
+                return View(model);
+            }
+            TempData["Error"] = "You must be logged in to view this page!";
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        [Authorize(Roles = "editor, member")]
+        public async Task<IActionResult> EditUser(EditUserDTO model)
+        {
+            if (!ModelState.IsValid)
+            {
+                var userId = _userManager.GetUserId(HttpContext.User);
+                var appUser = await _userManager.FindByIdAsync(userId);
+                if (appUser is not null)
+                {
+                    appUser.Email = model.Email;
+                    if (model.Password != null)
+                    {
+                        appUser.PasswordHash = _passwordHasher.HashPassword(appUser, model.Password);
+                    }
+                    appUser.UpdatedDate = DateTime.Now;
+                    appUser.Status = Movie_Core.Entities.Abstract.Status.Modified;
+
+                    var result = await _userManager.UpdateAsync(appUser);
+                    if (result.Succeeded)
+                    {
+                        TempData["Success"] = "Your information has been updated!";
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            TempData["Error"] = error.Description;
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                TempData["Error"] = "Please follow the rules below!";
+            }
+            return View(model);
+        }
+
+        [Authorize(Roles = "editor, member")]
+        public async Task<IActionResult> Logout()
+        {
+            if(HttpContext.User.Identity.IsAuthenticated)
+            {
+                await _signInManager.SignOutAsync();
+                TempData["Success"] = "You have been logged out!";
+                return RedirectToAction("Login");
+            }
+
+            TempData["Error"] = "You must be logged in to view this page!";
+            return RedirectToAction("Index", "Home");
         }
     }
 }

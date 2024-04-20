@@ -43,12 +43,16 @@ namespace Movie_WEB.Controllers
             return View(tvSeries);
         }
 
+
+        [Authorize(Roles = "editor")]
         public IActionResult AddTvSeries()
         {
             return View();
         }
 
+
         [HttpPost]
+        [Authorize(Roles = "editor")]
         public async Task<IActionResult> AddTvSeries(AddTvSeriesDTO model)
         {
             if (ModelState.IsValid)
@@ -62,6 +66,8 @@ namespace Movie_WEB.Controllers
             return View(model);
         }
 
+
+        [Authorize(Roles = "editor")]
         public async Task<IActionResult> UpdateTvSeries(int id)
         {
             var tvSeries = await
@@ -77,7 +83,9 @@ namespace Movie_WEB.Controllers
 
 
 
+
         [HttpPost]
+        [Authorize(Roles = "editor")]
         public async Task<IActionResult> UpdateTvSeries(UpdateTvSeriesDTO model)
         {
             if (ModelState.IsValid)
@@ -91,6 +99,8 @@ namespace Movie_WEB.Controllers
             return View(model);
         }
 
+
+        [Authorize(Roles = "editor")]
         public async Task<IActionResult> DeleteTvSeries(int id)
         {
             if (id > 0)

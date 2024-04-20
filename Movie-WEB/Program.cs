@@ -1,11 +1,14 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Movie_Core.Entities.UserEntities.Concrete;
 using Movie_DataAccess.Context;
 using Movie_DataAccess.Context.IdentityContext;
 using Movie_DataAccess.DependencyResolvers.Autofac;
+using Movie_DataAccess.FluentValidators.UserValidators;
 
 namespace Movie_WEB
 {
@@ -17,7 +20,12 @@ namespace Movie_WEB
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddValidatorsFromAssemblyContaining<RegisterValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<LoginValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<EditUserValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<ChangePasswordValidator>();
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddFluentValidationClientsideAdapters();
 
             builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
                         .ConfigureContainer<ContainerBuilder>(builder =>
@@ -69,6 +77,10 @@ namespace Movie_WEB
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
                 name: "default",
