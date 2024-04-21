@@ -5,6 +5,8 @@ using Movie_Core.Entities.Abstract;
 using AutoMapper;
 using Movie_Core.Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Movie_DataAccess.Services.Concrete;
+using Movie_WEB.Models.ViewModels;
 
 namespace Movie_WEB.Controllers
 {
@@ -27,6 +29,42 @@ namespace Movie_WEB.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> MovieComments()
+        {
+            var movieComments = await _commentRepository.GetFilteredListAsync
+                (
+                    select: x => new CommentVM
+                    {
+                        MovieId = x.MovieId,
+                        MovieName = x.Movie.MovieName,
+                        UserComment = x.UserComment,
+                        UserName = x.UserName,
+                    },
+
+                    where: x => x.Status != Status.Passive
+                );
+            return View(movieComments);
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> TvSeriesComments()
+        {
+            var tvSeriesComments = await _commentRepository.GetFilteredListAsync
+                (
+                    select: x => new CommentVM
+                    {
+                        TvSeriesId = x.TvSeriesId,
+                        TvSeriesName = x.TvSeries.TvSeriesName,
+                        UserComment = x.UserComment,
+                        UserName = x.UserName,
+                    },
+
+                    where: x => x.Status != Status.Passive
+                );
+            return View(tvSeriesComments);
         }
 
         [Authorize(Roles = "editor, member")]
