@@ -1,0 +1,22 @@
+﻿@{
+	ViewData["Title"] = "MovieDetail";
+}
+@model MovieDetailDTO
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-8">
+			<h2>@Model.MovieName</h2>
+			<p>@Model.Description</p>
+			<p>Director: @Model.Director</p>
+			<p>Release Date: @Model.ReleaseDate</p>
+			<p>Rating: @Model.ImdbRating</p>
+			<p>Cast: @Model.Cast</p>
+			<p>Image: @Model.ImagePath</p>
+			<p>Duration: @Model.Duration</p>
+			<p>Genre: @Model.Genre</p>
+		</div>
+	</div>
+</div>

@@ -122,5 +122,21 @@ namespace Movie_WEB.Controllers
             TempData["Error"] = "Movie not found!";
             return RedirectToAction("Index");
         }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> MovieDetail(int id)
+        {
+            if (id > 0)
+            {
+                var movie = await _movieRepository.GetByIdAsync(id);
+                if (movie != null)
+                {
+                    var model = _mapper.Map<MovieDetailDTO>(movie);
+                    return View(model);
+                }
+            }
+            TempData["Error"] = "Movie not found!";
+            return RedirectToAction("Index");
+        }
     }
 }

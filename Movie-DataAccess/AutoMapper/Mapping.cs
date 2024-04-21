@@ -17,9 +17,12 @@ namespace Movie_DataAccess.AutoMapper
         {
             CreateMap<Movie, AddMovieDTO>().ReverseMap();
             CreateMap<Movie, UpdateMovieDTO>().ReverseMap();
+            CreateMap<Movie, MovieDetailDTO>().ReverseMap();
 
             CreateMap<TvSeries, AddTvSeriesDTO>().ReverseMap();
             CreateMap<TvSeries, UpdateTvSeriesDTO>().ReverseMap();
+            CreateMap<TvSeries, TvSeriesDetailDTO>().ReverseMap();
+
 
 
         }
