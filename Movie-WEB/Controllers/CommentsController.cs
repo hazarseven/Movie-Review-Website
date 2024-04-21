@@ -106,5 +106,22 @@ namespace Movie_WEB.Controllers
             TempData["Error"] = "Please follow the rules below!";
             return View(model);
         }
+
+        [Authorize(Roles = "editor, member")]
+        public async Task<IActionResult> DeleteComment(int id)
+        {
+			if (id > 0)
+            {
+				var comment = await _commentRepository.GetByIdAsync(id);
+				if (comment != null)
+                {
+					await _commentRepository.DeleteAsync(comment);
+                    TempData["Success"] = "Comment deleted successfully";
+					return RedirectToAction("Index");
+				}
+			}
+            TempData["Error"] = "Comment not found!";
+			return RedirectToAction("Index");
+		}
     }
 }

@@ -116,5 +116,21 @@ namespace Movie_WEB.Controllers
             TempData["Error"] = "Tv Series not found";
             return RedirectToAction("Index");
         }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> TvSeriesDetail(int id)
+        {
+            if(id > 0)
+            {
+			    var tvSeries = await _tvSeriesRepository.GetByIdAsync(id);
+			    if (tvSeries != null)
+                {
+				    var model = _mapper.Map<TvSeriesDetailDTO>(tvSeries);
+				    return View(model);
+			    }
+            }
+            TempData["Error"] = "Tv Series not found";
+			return RedirectToAction("Index");
+		}
     }
 }
