@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movie_Core.DTO_s.RoleDTO;
@@ -16,15 +17,21 @@ namespace Movie_WEB.Areas.Admin.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        [Area("Admin")]
+        [Authorize(Roles = "editor")]
         public async Task<IActionResult> Index()
         {
             var roles = await _roleManager.Roles.ToListAsync();
             return View(roles);
         }
 
-        public IActionResult CreateRole() => View();
+		[Area("Admin")]
+		[Authorize(Roles = "editor")]
+		public IActionResult CreateRole() => View();
 
-        [HttpPost, ValidateAntiForgeryToken]
+		[Area("Admin")]
+		[Authorize(Roles = "editor")]
+		[HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateRole(CreateRoleDTO model)
         {
             if (ModelState.IsValid)
@@ -52,7 +59,9 @@ namespace Movie_WEB.Areas.Admin.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> UpdateRole(string id)
+		[Area("Admin")]
+		[Authorize(Roles = "editor")]
+		public async Task<IActionResult> UpdateRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
             if (role != null)
@@ -64,7 +73,9 @@ namespace Movie_WEB.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+		[Area("Admin")]
+		[Authorize(Roles = "editor")]
+		[HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateRole(UpdateRoleDTO model)
         {
             if (ModelState.IsValid)
@@ -88,8 +99,9 @@ namespace Movie_WEB.Areas.Admin.Controllers
             TempData["Error"] = "Please follow the rules below!";
             return View(model);
         }
-
-        public async Task<IActionResult> AssignedUser(string id)
+		[Area("Admin")]
+		[Authorize(Roles = "editor")]
+		public async Task<IActionResult> AssignedUser(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
 
@@ -126,7 +138,9 @@ namespace Movie_WEB.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+		[Area("Admin")]
+		[Authorize(Roles = "editor")]
+		[HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> AssignedUser(AssignedRoleDTO model)
         {
             IdentityResult result = new IdentityResult();
@@ -153,7 +167,9 @@ namespace Movie_WEB.Areas.Admin.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> DeleteRole(string id)
+		[Area("Admin")]
+		[Authorize(Roles = "editor")]
+		public async Task<IActionResult> DeleteRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
             if (role != null)

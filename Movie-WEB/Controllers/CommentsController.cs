@@ -16,15 +16,13 @@ namespace Movie_WEB.Controllers
         private readonly IMovieRepository _movieRepository;
         private readonly ITvSeriesRepository _tvSeriesRepository;
         private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
 
-        public CommentsController(ICommentRepository commentRepository, IMovieRepository movieRepository, ITvSeriesRepository tvSeriesRepository, IUserRepository userRepository, IMapper mapper)
+        public CommentsController(ICommentRepository commentRepository, IMovieRepository movieRepository, ITvSeriesRepository tvSeriesRepository, IUserRepository userRepository)
         {
             _commentRepository = commentRepository;
             _movieRepository = movieRepository;
             _tvSeriesRepository = tvSeriesRepository;
             _userRepository = userRepository;
-            _mapper = mapper;
         }
         public IActionResult Index()
         {
