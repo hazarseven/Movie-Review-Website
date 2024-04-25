@@ -18,6 +18,7 @@
                                 <th>Açıklaması</th>
                                 <th>Yayınlanma Tarihi</th>
                                 <th>ImdbRating</th>
+                                <th>Detay</th>
                                 @if (User.IsInRole("editor"))
                                 {
                                     <th>Güncelle</th>
@@ -33,6 +34,9 @@
                                     <td>@tvSeries.Description</td>
                                     <td>@tvSeries.ReleaseDateonly</td>
                                     <td>@tvSeries.ImdbRating</td>
+                                    <td>
+                                        <a asp-action="TvSeriesDetail" asp-route-id="@tvSeries.Id" class="btn btn-outline-success">Detay</a>
+                                    </td>
 
                                     @if (User.IsInRole("editor"))
                                     {

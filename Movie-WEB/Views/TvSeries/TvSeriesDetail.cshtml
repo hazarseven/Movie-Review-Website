@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "TvSeries Detail";
+}
+@model TvSeriesDetailDTO
+
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="~/img/default.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-12">
+            <div class="card-body">
+                <h2 class="card-title ">@Model.TvSeriesName</h2>
+                <p class="card-text fs-3">Description: <b> @Model.Description</b></p>
+                <p class="card-text fs-3">Director: <b>@Model.Director</b></p>
+                <p class="card-text fs-3">ImagePath: <b>@Model.ImagePath</b></p>
+                <p class="card-text fs-3">Cast: <b>@Model.Cast</b></p>
+                <p class="card-text fs-3">ReleaseDate: <b>@Model.ReleaseDate</b></p>
+                <p class="card-text fs-3">ImdbRating: <b>@Model.ImdbRating</b></p>
+                <p class="card-text fs-3">Genre: <b>@Model.Genre</b></p>
+                <p class="card-text fs-3">TrailerPath: <b>@Model.TrailerPath</b></p>
+            </div>
+        </div>
+    </div>
+</div>
