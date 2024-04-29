@@ -6,6 +6,7 @@ using Movie_Core.Entities.Abstract;
 using Movie_Core.Entities.Concrete;
 using Movie_Core.DTO_s.MovieDTO;
 using Microsoft.AspNetCore.Authorization;
+using Movie_DataAccess.Services.Concrete;
 
 namespace Movie_WEB.Controllers
 {
@@ -13,11 +14,13 @@ namespace Movie_WEB.Controllers
     {
         private readonly IMovieRepository _movieRepository;
         private readonly IMapper _mapper;
+        private readonly ICommentRepository _commentRepository;
 
-        public MoviesController(IMovieRepository movieRepository, IMapper mapper)
+        public MoviesController(IMovieRepository movieRepository, IMapper mapper, ICommentRepository commentRepository)
         {
             _movieRepository = movieRepository;
             _mapper = mapper;
+            _commentRepository = commentRepository;
         }
 
         [AllowAnonymous]
@@ -45,20 +48,85 @@ namespace Movie_WEB.Controllers
             return View(movies);
         }
 
-		[AllowAnonymous]
-		public async Task<IActionResult> MovieDetail(int id)
-		{
-			if (id > 0)
-			{
-				var movie = await _movieRepository.GetByIdAsync(id);
-				if (movie != null)
-				{
-					var model = _mapper.Map<MovieDetailDTO>(movie);
-					return View(model);
-				}
-			}
-			TempData["Error"] = "Movie not found!";
-			return RedirectToAction("Index");
-		}
-	}
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> MovieDetail(int id)
+        {
+            if (id > 0)
+            {
+                var movie = await _movieRepository.GetByIdAsync(id);
+                if (movie != null)
+                {
+                    var model = _mapper.Map<MovieDetailDTO>(movie);
+
+                    // Bu filmle ilgili yorumları al
+                    var comments = await _commentRepository.GetFilteredListAsync(
+                        select: c => new CommentVM
+                        {
+                            UserName = c.UserName,
+                            UserComment = c.UserComment
+                        },
+                        where: c => c.MovieId == id && c.Status != Status.Passive
+                    );
+
+                    model.Comments = comments.ToList();
+
+                    return View(model);
+                }
+            }
+            TempData["Error"] = "Movie not found!";
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> MovieDetail(int id, string userName, string userComment)
+        {
+            if (id > 0)
+            {
+                var movie = await _movieRepository.GetByIdAsync(id);
+                if (movie != null)
+                {
+                    var model = _mapper.Map<MovieDetailDTO>(movie);
+
+                    var comments = await _commentRepository.GetFilteredListAsync(
+                        select: c => new CommentVM
+                        {
+                            UserName = c.UserName,
+                            UserComment = c.UserComment
+                        },
+                        where: c => c.MovieId == id && c.Status != Status.Passive
+                    );
+
+                    model.Comments = comments.ToList();
+
+                    // Yorum ekleme işlemi
+                    if (!string.IsNullOrWhiteSpace(userName) && !string.IsNullOrWhiteSpace(userComment))
+                    {
+        
+                        var comment = new Comment
+                        {
+                            UserName = userName,
+                            UserComment = userComment,
+                            MovieId = id,
+                            Status = Status.Active // Varsayılan olarak aktif durumda
+                        };
+
+                        await _commentRepository.AddAsync(comment);
+
+                        // Yeni yorum eklendikten sonra, sayfayı yenilemek için yönlendirme yap
+                        return RedirectToAction("MovieDetail", new { id = id });
+                    }
+
+                    return View(model);
+                }
+            }
+            TempData["Error"] = "Movie not found!";
+            return RedirectToAction("Index");
+        }
+
+
+
+    }
 }

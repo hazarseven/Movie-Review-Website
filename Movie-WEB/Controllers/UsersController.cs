@@ -33,7 +33,6 @@ namespace Movie_WEB.Controllers
          public IActionResult Register() => View();
 
         [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]
-        //Kullanıcı kayıt olabilmesi için mevcut verilerimle uyumlu bir kayıt olma post action'ı oluştur.
         public async Task<IActionResult> Register(RegisterDTO model)
         {
             var roles = await _roleManager.Roles.ToListAsync();

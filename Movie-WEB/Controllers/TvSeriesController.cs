@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Movie_Core.DTO_s.MovieDTO;
 using Movie_Core.DTO_s.TvSeriesDTO;
 using Movie_Core.Entities.Abstract;
 using Movie_Core.Entities.Concrete;
+using Movie_DataAccess.Services.Concrete;
 using Movie_DataAccess.Services.Interface;
 using Movie_WEB.Models.ViewModels;
 
@@ -13,11 +15,13 @@ namespace Movie_WEB.Controllers
     {
         private readonly ITvSeriesRepository _tvSeriesRepository;
         private readonly IMapper _mapper;
+        private readonly ICommentRepository _commentRepository;
 
-        public TvSeriesController(ITvSeriesRepository tvSeriesRepository, IMapper mapper)
+        public TvSeriesController(ITvSeriesRepository tvSeriesRepository, IMapper mapper, ICommentRepository commentRepository)
         {
             _tvSeriesRepository = tvSeriesRepository;
             _mapper = mapper;
+            _commentRepository = commentRepository;
         }
         [AllowAnonymous]
         public async Task<IActionResult> Index()
@@ -44,20 +48,78 @@ namespace Movie_WEB.Controllers
         }
 
 
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> TvSeriesDetail(int id)
         {
-            if(id > 0)
+            if (id > 0)
             {
-			    var tvSeries = await _tvSeriesRepository.GetByIdAsync(id);
-			    if (tvSeries != null)
+                var tvSeries = await _tvSeriesRepository.GetByIdAsync(id);
+                if (tvSeries != null)
                 {
-				    var model = _mapper.Map<TvSeriesDetailDTO>(tvSeries);
-				    return View(model);
-			    }
+                    var model = _mapper.Map<TvSeriesDetailDTO>(tvSeries);
+
+                    var comments = await _commentRepository.GetFilteredListAsync(
+                        select: c => new CommentVM
+                        {
+                            UserName = c.UserName,
+                            UserComment = c.UserComment
+                        },
+                        where: c => c.MovieId == id && c.Status != Status.Passive
+                    );
+
+                    model.Comments = comments.ToList();
+
+                    return View(model);
+                }
             }
-            TempData["Error"] = "Tv Series not found";
-			return RedirectToAction("Index");
-		}
+            TempData["Error"] = "Movie not found!";
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> TvSeriesDetail(int id, string userName, string userComment)
+        {
+            if (id > 0)
+            {
+                var tvSeries = await _tvSeriesRepository.GetByIdAsync(id);
+                if (tvSeries != null)
+                {
+                    var model = _mapper.Map<TvSeriesDetailDTO>(tvSeries);
+
+                    var comments = await _commentRepository.GetFilteredListAsync(
+                        select: c => new CommentVM
+                        {
+                            UserName = c.UserName,
+                            UserComment = c.UserComment
+                        },
+                        where: c => c.MovieId == id && c.Status != Status.Passive
+                    );
+
+                    model.Comments = comments.ToList();
+
+                    if (!string.IsNullOrWhiteSpace(userName) && !string.IsNullOrWhiteSpace(userComment))
+                    {
+
+                        var comment = new Comment
+                        {
+                            UserName = userName,
+                            UserComment = userComment,
+                            MovieId = id,
+                            Status = Status.Active 
+                        };
+
+                        await _commentRepository.AddAsync(comment);
+
+                        return RedirectToAction("MovieDetail", new { id = id });
+                    }
+
+                    return View(model);
+                }
+            }
+            TempData["Error"] = "Movie not found!";
+            return RedirectToAction("Index");
+        }
     }
 }

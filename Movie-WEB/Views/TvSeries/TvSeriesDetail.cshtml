@@ -3,23 +3,50 @@
 }
 @model TvSeriesDetailDTO
 
-<div class="card mb-3">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="~/img/default.jpg" class="img-fluid rounded-start" alt="...">
+<h2>@Model.TvSeriesName</h2>
+<p>@Model.Description</p>
+<p>Director: @Model.Director</p>
+<p>Cast: @Model.Cast</p>
+<p>Release Date: @Model.ReleaseDate.ToShortDateString()</p>
+<p>IMDB Rating: @Model.ImdbRating</p>
+<p>Genre: @Model.Genre</p>
+
+<!-- Yorumlar -->
+<h3>Comments</h3>
+@if (Model.Comments != null && Model.Comments.Any())
+{
+    <ul>
+        @foreach (var comment in Model.Comments)
+        {
+            <li>
+                <strong>@comment.UserName:</strong> @comment.UserComment
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No comments yet.</p>
+}
+
+<!-- Yorum ekleme formu -->
+@if (User.Identity.IsAuthenticated)
+{
+    <h3>Add Comment</h3>
+    <form asp-controller="Movies" asp-action="MovieDetail" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <div class="form-group">
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" name="userName" class="form-control" required />
         </div>
-        <div class="col-md-12">
-            <div class="card-body">
-                <h2 class="card-title ">@Model.TvSeriesName</h2>
-                <p class="card-text fs-3">Description: <b> @Model.Description</b></p>
-                <p class="card-text fs-3">Director: <b>@Model.Director</b></p>
-                <p class="card-text fs-3">ImagePath: <b>@Model.ImagePath</b></p>
-                <p class="card-text fs-3">Cast: <b>@Model.Cast</b></p>
-                <p class="card-text fs-3">ReleaseDate: <b>@Model.ReleaseDate</b></p>
-                <p class="card-text fs-3">ImdbRating: <b>@Model.ImdbRating</b></p>
-                <p class="card-text fs-3">Genre: <b>@Model.Genre</b></p>
-                <p class="card-text fs-3">TrailerPath: <b>@Model.TrailerPath</b></p>
-            </div>
+        <div class="form-group">
+            <label for="userComment">Your Comment:</label>
+            <textarea id="userComment" name="userComment" class="form-control" rows="4" required></textarea>
         </div>
-    </div>
-</div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+}
+else
+{
+    <p>Please <a href="/Account/Login">log in</a> to leave a comment.</p>
+}

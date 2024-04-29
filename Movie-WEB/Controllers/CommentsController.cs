@@ -66,27 +66,14 @@ namespace Movie_WEB.Controllers
         }
 
         [Authorize(Roles = "editor, member")]
-        public async Task<IActionResult> AddComment()
-        {
-            var model = new AddCommentDTO()
-            {
-                Movies = await _movieRepository.GetByDefaultsAsync(x => x.Status != Status.Passive),
-                TvSeries = await _tvSeriesRepository.GetByDefaultsAsync(x => x.Status != Status.Passive),
-                Users = await _userRepository.GetByDefaultsAsync(x => x.Status != Status.Passive)
-            };
-
-            return View(model);
-        }
+        public IActionResult AddComment() => View();
 
 
         [HttpPost, ValidateAntiForgeryToken]
         [Authorize(Roles = "editor, member")]
         public async Task<IActionResult> AddComment(AddCommentDTO model)
         {
-            model.Movies = await _movieRepository.GetByDefaultsAsync(x => x.Status != Status.Passive);
-            model.TvSeries = await _tvSeriesRepository.GetByDefaultsAsync(x => x.Status != Status.Passive);
-            model.Users = await _userRepository.GetByDefaultsAsync(x => x.Status != Status.Passive);
-
+            
             if (ModelState.IsValid)
             {
                 var comment = new Comment

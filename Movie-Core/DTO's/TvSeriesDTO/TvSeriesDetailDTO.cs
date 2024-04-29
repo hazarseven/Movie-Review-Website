@@ -1,4 +1,5 @@
 ﻿using Movie_Core.Entities.Abstract;
+using Movie_WEB.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,10 @@ namespace Movie_Core.DTO_s.TvSeriesDTO
 		public DateTime CreatedDate { get; set; }
 		public DateTime? UpdatedDate { get; set; }
 		public Status Status { get; set; }
-	}
+
+        public string UserName { get; set; }
+        public string UserComment { get; set; }
+
+        public List<CommentVM> Comments { get; set; }
+    }
 }
