@@ -43,7 +43,7 @@
 							<th>Kadro</th>
 							<th>Tür</th>
 							<th>Uzunluk</th>
-
+							<th>Detay</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -58,6 +58,9 @@
 								<td>@movie.Cast</td>
 								<td>@movie.Genre</td>
 								<td>@movie.Duration</td>
+								<td>
+									<a asp-controller="Movies" asp-action="MovieDetail" asp-route-id="@movie.Id" class="btn btn-outline-success">Detay</a>
+								</td>
 							</tr>
 						}
 					</tbody>
@@ -85,6 +88,7 @@
 							<th>Yönetmen</th>
 							<th>Kadro</th>
 							<th>Tür</th>
+							<th>Detay</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -98,6 +102,9 @@
 								<td>@tvSeries.Director</td>
 								<td>@tvSeries.Cast</td>
 								<td>@tvSeries.Genre</td>
+								<td>
+									<a asp-controller="TvSeries" asp-action="TvSeriesDetail" asp-route-id="@tvSeries.Id" class="btn btn-outline-success">Detay</a>
+								</td>
 							</tr>
 						}
 					</tbody>

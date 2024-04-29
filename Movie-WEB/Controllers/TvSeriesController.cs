@@ -65,7 +65,7 @@ namespace Movie_WEB.Controllers
                             UserName = c.UserName,
                             UserComment = c.UserComment
                         },
-                        where: c => c.MovieId == id && c.Status != Status.Passive
+                        where: c => c.TvSeriesId == id && c.Status != Status.Passive
                     );
 
                     model.Comments = comments.ToList();
@@ -73,7 +73,7 @@ namespace Movie_WEB.Controllers
                     return View(model);
                 }
             }
-            TempData["Error"] = "Movie not found!";
+            TempData["Error"] = "TvSeries not found!";
             return RedirectToAction("Index");
         }
 
@@ -94,7 +94,7 @@ namespace Movie_WEB.Controllers
                             UserName = c.UserName,
                             UserComment = c.UserComment
                         },
-                        where: c => c.MovieId == id && c.Status != Status.Passive
+                        where: c => c.TvSeriesId == id && c.Status != Status.Passive
                     );
 
                     model.Comments = comments.ToList();
@@ -106,19 +106,19 @@ namespace Movie_WEB.Controllers
                         {
                             UserName = userName,
                             UserComment = userComment,
-                            MovieId = id,
+							TvSeriesId = id,
                             Status = Status.Active 
                         };
 
                         await _commentRepository.AddAsync(comment);
 
-                        return RedirectToAction("MovieDetail", new { id = id });
+                        return RedirectToAction("TvSeriesDetail", new { id = id });
                     }
 
                     return View(model);
                 }
             }
-            TempData["Error"] = "Movie not found!";
+            TempData["Error"] = "TvSeries not found!";
             return RedirectToAction("Index");
         }
     }
