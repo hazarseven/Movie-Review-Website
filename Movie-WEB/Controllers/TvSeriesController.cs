@@ -91,7 +91,7 @@ namespace Movie_WEB.Controllers
                     var comments = await _commentRepository.GetFilteredListAsync(
                         select: c => new CommentVM
                         {
-                            UserName = c.UserName,
+                            UserName = User.Identity.Name,
                             UserComment = c.UserComment
                         },
                         where: c => c.TvSeriesId == id && c.Status != Status.Passive
@@ -99,27 +99,36 @@ namespace Movie_WEB.Controllers
 
                     model.Comments = comments.ToList();
 
-                    if (!string.IsNullOrWhiteSpace(userName) && !string.IsNullOrWhiteSpace(userComment))
+
+                    if (!string.IsNullOrWhiteSpace(User.Identity.Name) && !string.IsNullOrWhiteSpace(userComment))
                     {
 
                         var comment = new Comment
                         {
-                            UserName = userName,
+                            UserName = User.Identity.Name,
                             UserComment = userComment,
 							TvSeriesId = id,
                             Status = Status.Active 
                         };
 
+                        if (comments.Any(x => x.UserName == User.Identity.Name))
+                        {
+                            TempData["Error"] = "You have already commented!";
+                            return RedirectToAction("TvSeriesDetail", new { id = id });
+                        }
+
                         await _commentRepository.AddAsync(comment);
 
                         return RedirectToAction("TvSeriesDetail", new { id = id });
                     }
-
+                    
                     return View(model);
                 }
             }
             TempData["Error"] = "TvSeries not found!";
             return RedirectToAction("Index");
         }
+
+     
     }
 }

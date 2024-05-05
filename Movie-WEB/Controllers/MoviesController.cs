@@ -64,7 +64,7 @@ namespace Movie_WEB.Controllers
                     var comments = await _commentRepository.GetFilteredListAsync(
                         select: c => new CommentVM
                         {
-                            UserName = c.UserName,
+                            UserName = User.Identity.Name,
                             UserComment = c.UserComment
                         },
                         where: c => c.MovieId == id && c.Status != Status.Passive
@@ -81,7 +81,7 @@ namespace Movie_WEB.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> MovieDetail(int id, string userName, string userComment)
+        public async Task<IActionResult> MovieDetail(int id, string userComment)
         {
             if (id > 0)
             {
@@ -93,7 +93,7 @@ namespace Movie_WEB.Controllers
                     var comments = await _commentRepository.GetFilteredListAsync(
                         select: c => new CommentVM
                         {
-                            UserName = c.UserName,
+                            UserName = User.Identity.Name,
                             UserComment = c.UserComment
                         },
                         where: c => c.MovieId == id && c.Status != Status.Passive
@@ -101,21 +101,19 @@ namespace Movie_WEB.Controllers
 
                     model.Comments = comments.ToList();
 
-                    // Yorum ekleme işlemi
-                    if (!string.IsNullOrWhiteSpace(userName) && !string.IsNullOrWhiteSpace(userComment))
+                    if (!string.IsNullOrWhiteSpace(User.Identity.Name) && !string.IsNullOrWhiteSpace(userComment))
                     {
         
                         var comment = new Comment
                         {
-                            UserName = userName,
+                            UserName = User.Identity.Name,
                             UserComment = userComment,
                             MovieId = id,
-                            Status = Status.Active // Varsayılan olarak aktif durumda
+                            Status = Status.Active 
                         };
 
                         await _commentRepository.AddAsync(comment);
 
-                        // Yeni yorum eklendikten sonra, sayfayı yenilemek için yönlendirme yap
                         return RedirectToAction("MovieDetail", new { id = id });
                     }
 

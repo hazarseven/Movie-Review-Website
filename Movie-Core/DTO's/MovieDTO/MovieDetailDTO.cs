@@ -26,7 +26,6 @@ namespace Movie_Core.DTO_s.MovieDTO
         public DateTime? UpdatedDate { get; set; }
         public Status Status { get; set; }
 
-        public string UserName { get; set; } 
         public string UserComment { get; set; } 
 
         public List<CommentVM> Comments { get; set; }
