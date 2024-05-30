@@ -30,7 +30,7 @@
                         {
 
                             <div class="property-item">
-                                <a href="property-single.html" class="img">
+                                <a asp-controller="Movies" asp-action="MovieDetail" asp-route-id="@movie.Id" class="img">
                                     <img src="@movie.ImagePath" alt="Image" class="img-fluid" />
                                 </a>
 
@@ -59,7 +59,7 @@
                         {
 
                             <div class="property-item">
-                                <a href="property-single.html" class="img">
+                                <a asp-controller="TvSeries" asp-action="TvSeriesDetail" asp-route-id="@tvSeries.Id" class="img">
                                     <img src="@tvSeries.ImagePath" alt="Image" class="img-fluid" />
                                 </a>
 
