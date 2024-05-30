@@ -111,11 +111,6 @@ namespace Movie_WEB.Controllers
                             Status = Status.Active 
                         };
 
-                        if (comments.Any(x => x.UserName == User.Identity.Name))
-                        {
-                            TempData["Error"] = "You have already commented!";
-                            return RedirectToAction("TvSeriesDetail", new { id = id });
-                        }
 
                         await _commentRepository.AddAsync(comment);
 

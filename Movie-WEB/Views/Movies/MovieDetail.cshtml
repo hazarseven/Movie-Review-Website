@@ -3,51 +3,123 @@
 }
 @model MovieDetailDTO
 
-<h2>@Model.MovieName</h2>
-<p>@Model.Description</p>
-<p>Director: @Model.Director</p>
-<p>Cast: @Model.Cast</p>
-<p>Release Date: @Model.ReleaseDate.ToShortDateString()</p>
-<p>IMDB Rating: @Model.ImdbRating</p>
-<p>Genre: @Model.Genre</p>
-<p>Duration: @Model.Duration minutes</p>
 
-<!-- Yorumlar -->
-<h3>Comments</h3>
-@if (Model.Comments != null && Model.Comments.Any())
-{
-    <ul>
-        @foreach (var comment in Model.Comments)
-        {
-            <li>
-                <strong>@comment.UserName:</strong> @comment.UserComment
-            </li>
-        }
-    </ul>
-}
-else
-{
-    <p>No comments yet.</p>
-}
 
-<!-- Yorum ekleme formu -->
-@if (User.Identity.IsAuthenticated)
-{
-    <h3>Add Comment</h3>
-    <form asp-controller="Movies" asp-action="MovieDetail" method="post">
-        <input type="hidden" name="id" value="@Model.Id" />
-        <div class="form-group">
-            <label for="userName">Your Name:</label>
-            <input type="text" id="userName" name="userName" class="form-control" required />
+<main class="page product-page">
+    <section class="clean-block clean-product dark">
+        <div class="container">
+            <div class="block-content">
+                <div class="product-info">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="gallery">
+                                <div id="product-preview" class="vanilla-zoom">
+                                    <div class="zoomed-image"></div>
+                                    <div class="sidebar"><img class="img-fluid d-block small-preview" src="@Model.ImagePath"><img class="img-fluid d-block small-preview" src="@Model.ImagePath"><img class="img-fluid d-block small-preview" src="@Model.ImagePath"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h2>@Model.MovieName</h2>
+                            <div class="product-info">
+                                <div>
+                                    <ul class="nav nav-tabs" role="tablist" id="myTab">
+                                        <li class="nav-item fs-5" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" id="description-tab" href="#description">Description</a></li>
+                                        <li class="nav-item fs-5" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="specifications-tabs" href="#specifications">Details</a></li>
+                                        <li class="nav-item fs-5" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="reviews-tab" href="#reviews">Reviews</a></li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active description mt-4" role="tabpanel" id="description">
+                                            <p style="font-size:18px">@Model.Description</p>
+                                            <div class="p3">
+                                                <a href="@Model.TrailerPath" target="_blank">
+                                                    <button class="btn btn-success">Watch Trailer</button>
+                                               </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade specifications mt-4" role="tabpanel" id="specifications">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <tbody>
+                                                        <tr class="w-25">
+                                                            <td class="stat fs-5">Director</td>
+                                                            <td class="fs-5">@Model.Director</td>
+                                                        </tr>
+                                                        <tr class="w-25">
+                                                            <td class="stat fs-5">ReleaseDate</td>
+                                                            <td class="fs-5">@Model.ReleaseDate.ToShortDateString()</td>
+                                                        </tr>
+                                                        <tr class="w-25">
+                                                            <td class="stat fs-5">Cast</td>
+                                                            <td class="fs-5">@Model.Cast</td>
+                                                        </tr>
+                                                        <tr class="w-25">
+                                                            <td class="stat fs-5">IMDB Rating</td>
+                                                            <td class="fs-5">@Model.ImdbRating</td>
+                                                        </tr>
+                                                        <tr class="w-25">
+                                                            <td class="stat fs-5">Genre</td>
+                                                            <td class="fs-5">@Model.Genre</td>
+                                                        </tr>
+                                                        <tr class="w-25">
+                                                            <td class="stat fs-5">Duration</td>
+                                                            <td class="fs-5">@Model.Duration minutes</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" role="tabpanel" id="reviews">
+
+                                            <div class="container mt-4">
+                                                <h3>Reviews</h3>
+                                                @if (Model.Comments != null && Model.Comments.Any())
+                                                {
+                                                    <ul>
+                                                        @foreach (var comment in Model.Comments)
+                                                        {
+                                                            <li>
+                                                                <strong>@comment.UserName:</strong> @comment.UserComment
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    <p>No comments yet.</p>
+                                                }
+
+                                                <!-- Yorum ekleme formu -->
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <h3>Add Comment</h3>
+                                                    <form asp-controller="Movies" asp-action="MovieDetail" method="post">
+                                                        <input type="hidden" name="id" value="@Model.Id" />
+                                                        <div class="form-group">
+                                                            <label for="userComment">Your Comment:</label>
+                                                            <textarea id="userComment" name="userComment" class="form-control" rows="4" required></textarea>
+                                                        </div>
+                                                        <div class="w-100 p-4">
+                                                            <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                                        </div>
+
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <p>Please <a href="/Users/Login">log in</a> to leave a comment.</p>
+                                                }
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="userComment">Your Comment:</label>
-            <textarea id="userComment" name="userComment" class="form-control" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-}
-else
-{
-    <p>Please <a href="/Users/Login">log in</a> to leave a comment.</p>
-}
+    </section>
+</main>

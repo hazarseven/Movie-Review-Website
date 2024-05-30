@@ -99,15 +99,12 @@ namespace Movie_WEB.Areas.Admin.Controllers
 
 		public async Task<IActionResult> UpdateMovie(int id)
 		{
-			if (id > 0)
-			{
 				var movie = await _movieRepository.GetByIdAsync(id);
 				if (movie != null)
 				{
 					var model = _mapper.Map<UpdateMovieDTO>(movie);
 					return View(model);
 				}
-			}
 			TempData["Error"] = "Movie not found!";
 			return RedirectToAction("Index");
 		}

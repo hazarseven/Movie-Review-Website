@@ -60,11 +60,10 @@ namespace Movie_WEB.Controllers
                 {
                     var model = _mapper.Map<MovieDetailDTO>(movie);
 
-                    // Bu filmle ilgili yorumları al
                     var comments = await _commentRepository.GetFilteredListAsync(
                         select: c => new CommentVM
                         {
-                            UserName = User.Identity.Name,
+                            UserName = c.UserName,
                             UserComment = c.UserComment
                         },
                         where: c => c.MovieId == id && c.Status != Status.Passive
@@ -81,7 +80,7 @@ namespace Movie_WEB.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> MovieDetail(int id, string userComment)
+        public async Task<IActionResult> MovieDetail(int id, string userName, string userComment)
         {
             if (id > 0)
             {
@@ -112,7 +111,7 @@ namespace Movie_WEB.Controllers
                             Status = Status.Active 
                         };
 
-                        await _commentRepository.AddAsync(comment);
+						await _commentRepository.AddAsync(comment);
 
                         return RedirectToAction("MovieDetail", new { id = id });
                     }

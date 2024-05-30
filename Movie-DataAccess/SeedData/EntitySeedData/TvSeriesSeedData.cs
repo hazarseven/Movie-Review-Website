@@ -27,7 +27,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Bryan Cranston, Aaron Paul, Anna Gunn",
                         Genre = "Crime",
                         TrailerPath = "https://www.youtube.com/watch?v=HhesaQXLuRY",
-                        ImagePath = "https://www.imdb.com/title/tt0903747/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg"
                     },
 
                     new TvSeries
@@ -41,7 +41,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Emilia Clarke, Peter Dinklage, Kit Harington",
                         Genre = "Action",
                         TrailerPath = "https://www.youtube.com/watch?v=rlR4PJn8b8I",
-                        ImagePath = "https://www.imdb.com/title/tt0944947/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BN2IzYzBiOTQtNGZmMi00NDI5LTgxMzMtN2EzZjA1NjhlOGMxXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg"
                     },
 
                     new TvSeries
@@ -55,7 +55,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Benedict Cumberbatch, Martin Freeman, Una Stubbs",
                         Genre = "Crime",
                         TrailerPath = "https://www.youtube.com/watch?v=qlcWFoNqZHc",
-                        ImagePath = "https://www.imdb.com/title/tt1475582/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BMWEzNTFlMTQtMzhjOS00MzQ1LWJjNjgtY2RhMjFhYjQwYjIzXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"
                     },
 
                     new TvSeries
@@ -69,7 +69,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Jennifer Aniston, Courteney Cox, Lisa Kudrow",
                         Genre = "Comedy",
                         TrailerPath = "https://www.youtube.com/watch?v=hDNNmeeJs1Q",
-                        ImagePath = "https://www.imdb.com/title/tt0108778/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BNDVkYjU0MzctMWRmZi00NTkxLTgwZWEtOWVhYjZlYjllYmU4XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg"
                     },
 
                     new TvSeries
@@ -83,7 +83,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Steve Carell, Jenna Fischer, John Krasinski",
                         Genre = "Comedy",
                         TrailerPath = "https://www.youtube.com/watch?v=UZj2xu6lQ34",
-                        ImagePath = "https://www.imdb.com/title/tt0386676/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg"
                     },
 
                     new TvSeries
@@ -97,7 +97,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Úrsula Corberó, Álvaro Morte, Itziar Ituño",
                         Genre = "Action",
                         TrailerPath = "https://www.youtube.com/watch?v=htqXL94Rza4",
-                        ImagePath = "https://www.imdb.com/title/tt6468322/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BODI0ZTljYTMtODQ1NC00NmI0LTk1YWUtN2FlNDM1MDExMDlhXkEyXkFqcGdeQXVyMTM0NTUzNDIy._V1_FMjpg_UX1000_.jpg"
                     },
 
                     new TvSeries
@@ -111,7 +111,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Millie Bobby Brown, Finn Wolfhard, Winona Ryder",
                         Genre = "Drama",
                         TrailerPath = "https://www.youtube.com/watch?v=XcnHOQ-cHa0",
-                        ImagePath = "https://www.imdb.com/title/tt4574334/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/I/81l6XqCYYQL._AC_UF1000,1000_QL80_.jpg"
                     },
 
                     new TvSeries
@@ -125,7 +125,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Claire Foy, Olivia Colman, Imelda Staunton",
                         Genre = "Drama",
                         TrailerPath = "https://www.youtube.com/watch?v=JWtnJjn6ng0",
-                        ImagePath = "https://www.imdb.com/title/tt4786824/mediaviewer/rm10105600/"
+                        ImagePath = "https://image.tmdb.org/t/p/w500/1M876KPjulVwppEpldhdc8V4o68.jpg"
                     },
 
                     new TvSeries
@@ -139,7 +139,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Pedro Pascal, Carl Weathers, Gina Carano",
                         Genre = "Action",
                         TrailerPath = "https://www.youtube.com/watch?v=eW7Twd85m2g",
-                        ImagePath = "https://www.imdb.com/title/tt8111088/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BN2M5YWFjN2YtYzU2YS00NzBlLTgwZWUtYWQzNWFhNDkyYjg3XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg"
                     },
 
                     new TvSeries
@@ -153,7 +153,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Cast = "Henry Cavill, Freya Allan, Anya Chalotra",
                         Genre = "Action",
                         TrailerPath = "https://www.youtube.com/watch?v=ndl1W4ltcmg",
-                        ImagePath = "https://www.imdb.com/title/tt5180504/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BMDEwOWVlY2EtMWI0ZC00OWVmLWJmZGItYTk3YjYzN2Y0YmFkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
                     }
                 );
         }

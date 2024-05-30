@@ -27,7 +27,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Drama",
                         Duration = 142,
                         TrailerPath = "https://www.youtube.com/watch?v=6hB3S9bIaco",
-                        ImagePath = "https://www.imdb.com/title/tt0111161/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg"
                     },
 
                     new Movie
@@ -42,7 +42,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Crime",
                         Duration = 175,
                         TrailerPath = "https://www.youtube.com/watch?v=sY1S34973zA",
-                        ImagePath = "https://www.imdb.com/title/tt0068646/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
                     },
 
                     new Movie
@@ -57,7 +57,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Action",
                         Duration = 152,
                         TrailerPath = "https://www.youtube.com/watch?v=EXeTwQWrcwY",
-                        ImagePath = "https://www.imdb.com/title/tt0468569/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
                     },
 
 
@@ -74,8 +74,8 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Action",
                         Duration = 148,
                         TrailerPath = "https://www.youtube.com/watch?v=YoHD9XEInc0",
-                        ImagePath = "https://www.imdb.com/title/tt1375666/mediaviewer/rm10105600/"
-                    
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg"
+
                     },
 
                     new Movie
@@ -90,7 +90,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Action",
                         Duration = 136,
                         TrailerPath = "https://www.youtube.com/watch?v=m8e-FF8MsqU",
-                        ImagePath = "https://www.imdb.com/title/tt0133093/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
                     },
 
                     new Movie
@@ -105,7 +105,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Adventure",
                         Duration = 178,
                         TrailerPath = "https://www.youtube.com/watch?v=V75dMMIW2B4",
-                        ImagePath = "https://www.imdb.com/title/tt0120737/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg"
                     },
 
                     new Movie
@@ -120,7 +120,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Adventure",
                         Duration = 179,
                         TrailerPath = "https://www.youtube.com/watch?v=LbfMDwc4azU",
-                        ImagePath = "https://www.imdb.com/title/tt0167261/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BZTUxNzg3MDUtYjdmZi00ZDY1LTkyYTgtODlmOGY5N2RjYWUyXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_FMjpg_UX1000_.jpg"
                     },
 
                     new Movie
@@ -135,7 +135,7 @@ namespace Movie_DataAccess.SeedData.EntitySeedData
                         Genre = "Action",
                         Duration = 164,
                         TrailerPath = "https://www.youtube.com/watch?v=g8evyE9TuYk",
-                        ImagePath = "https://www.imdb.com/title/tt1345836/mediaviewer/rm10105600/"
+                        ImagePath = "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg"
                     }
 
 
